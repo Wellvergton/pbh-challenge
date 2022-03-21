@@ -1,0 +1,44 @@
+<form>
+  <span class="p-float-label mt-2 mb-2">
+    <input id="nome-input" name="nome" type="text" pInputText [(ngModel)]="profissional.nome">
+    <label for="nome-input">Nome</label>
+  </span>
+  <span class="p-float-label mb-2">
+    <input id="endereco-input" name="endereco" type="text" pInputText [(ngModel)]="profissional.endereco">
+    <label for="endereco-input">Endereço</label>
+  </span>
+  <span class="p-float-label mb-2">
+    <p-inputMask
+      inputId="celular-input"
+      mask="(99) 99999-999?9"
+      [unmask]="true"
+      name="celular"
+      [(ngModel)]="profissional.tel_celular"
+    >
+    </p-inputMask>
+    <label for="celular-input">Celular</label>
+  </span>
+  <span class="p-float-label mb-2">
+    <p-inputMask
+      inputId="tel-fixo-input"
+      mask="(99) 9999-9999"
+      [unmask]="true"
+      name="tel-fixo-input"
+      [(ngModel)]="profissional.tel_residencial"
+    >
+    </p-inputMask>
+    <label for="tel-fixo-input">Telefone Fixo</label>
+  </span>
+  <span class="p-float-label mb-2">
+    <input id="funcao-input" name="funcao" type="text" pInputText [(ngModel)]="profissional.funcao">
+    <label for="funcao-input">Função</label>
+  </span>
+  <p-button label="Salvar" (onClick)="saveProfissional()" styleClass="btn-mr-1"></p-button>
+  <p-message
+    *ngIf="status !== ''"
+    severity="success"
+    text="{{ status === '200' ? 'Usuário atualizado com sucesso' : 'Usuário salvo com sucesso'}}"
+  >
+  </p-message>
+  <br>
+</form>

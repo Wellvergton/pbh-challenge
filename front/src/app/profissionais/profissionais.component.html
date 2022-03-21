@@ -1,0 +1,37 @@
+<p-table [value]="profissionais">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+      <th>Endereço</th>
+      <th>Celular</th>
+      <th>Telefone Fixo</th>
+      <th>Função</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-profissional>
+    <tr>
+      <td>{{ profissional.profissional_id }}</td>
+      <td>{{ profissional.nome }}</td>
+      <td>{{ profissional.endereco }}</td>
+      <td>{{ profissional.tel_celular | phone }}</td>
+      <td>{{ profissional.tel_residencial | phone }}</td>
+      <td>{{ profissional.funcao }}</td>
+      <td>
+        <p-button
+          styleClass="p-button-rounded btn-mr-1"
+          icon="pi pi-pencil"
+          [routerLink]="['/editar-profissional', profissional.profissional_id]"
+        >
+        </p-button>
+        <p-button
+          styleClass="p-button-danger p-button-rounded"
+          icon="pi pi-trash"
+          (onClick)="deleteProfissional(profissional.profissional_id)"
+        >
+        </p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

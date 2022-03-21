@@ -1,0 +1,28 @@
+<form>
+  <span class="p-float-label mt-2 mb-2">
+    <input id="nome-input" name="nome" type="text" pInputText [(ngModel)]="estabelecimento.nome">
+    <label for="nome-input">Nome</label>
+  </span>
+  <span class="p-float-label mb-2">
+    <input id="endereco-input" name="endereco" type="text" pInputText [(ngModel)]="estabelecimento.endereco">
+    <label for="endereco-input">Endereço</label>
+  </span>
+  <span class="p-float-label mb-2">
+    <p-inputMask
+      inputId="celular-input"
+      mask="(99) 99999-999?9"
+      [unmask]="true"
+      name="celular"
+      [(ngModel)]="estabelecimento.telefone"
+    >
+    </p-inputMask>
+    <label for="celular-input">Telefone</label>
+  </span>
+  <p-button label="Salvar" (onClick)="saveEstabelecimento()" styleClass="btn-mr-1"></p-button>
+  <p-message
+    *ngIf="status !== ''"
+    severity="success"
+    text="{{ status === '200' ? 'Estabelecimento atualizado com sucesso' : 'Estabelecimento salvo com sucesso'}}"
+  >
+  </p-message>
+</form>
